@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- Mapper.java namespace -->
+<mapper namespace="jorge.autentia.catalogo.mapper.Mapper">
+
+    <resultMap type="jorge.autentia.catalogo.model.Curso" id="Curso">
+        <id column="ID" property="id"  />
+        <result property="ACTIVO" column="activo"/>
+        <result property="PROFESOR" column="profesor"/>
+        <result property="TITULO" column="titulo"/>
+        <result property="NIVEL" column="nivel"/>
+        <result property="HORAS" column="horas"/>
+        <result property="TEMARIO" column="temario"/>
+    </resultMap>
+    
+</mapper>
