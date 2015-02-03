@@ -1,10 +1,9 @@
 package jorge.autentia.catalogo.service;
 
-import java.io.Serializable;
 import java.util.List;
 
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 
 import jorge.autentia.catalogo.mappers.CursoMapper;
 import jorge.autentia.catalogo.model.Curso;
@@ -14,14 +13,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service("cursoService")
-@ManagedBean(name="cursoService")
-@ApplicationScoped
-public class CursoServiceImp implements CursoService, Serializable{
+@ViewScoped
+public class CursoServiceImp implements CursoService{
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6083012779303969301L;
 	@Autowired
 	private CursoMapper cursoMapper;
 	

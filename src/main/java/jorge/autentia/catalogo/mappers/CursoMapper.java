@@ -1,6 +1,5 @@
 package jorge.autentia.catalogo.mappers;
 
-import java.io.Serializable;
 import java.util.List;
 
 import jorge.autentia.catalogo.model.Curso;
@@ -11,7 +10,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 
-public interface CursoMapper extends Serializable{
+public interface CursoMapper {
 	@Insert("INSERT INTO curso(activo, profesor, titulo, nivel, horas, temario) VALUES"
 			+ "(#{activo}, #{profesor}, #{titulo}, #{nivel}, #{horas}, #{temario})")
 	@Options(useGeneratedKeys=true, keyProperty="id", flushCache=true, keyColumn="id")

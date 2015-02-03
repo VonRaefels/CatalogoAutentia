@@ -15,10 +15,10 @@
 	<h1>Catálogo de Cursos</h1>
 	<h:form>
 		<p:dataTable style="width:50%;" var="curso"
-			value="#{cursosView.cursos}" paginator="true" rows="2"
+			value="#{cursosView.cursos}" paginator="true" rows="4"
 			paginatorPosition="bottom"
 			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-			rowsPerPageTemplate="2, 4" id="cursoTable" lazy="false">
+			rowsPerPageTemplate="4, 6, 8" id="cursoTable" lazy="false">
 			<p:column headerText="Título" sortBy="#{curso.titulo}">
 				<h:outputText value="#{curso.titulo}" />
 			</p:column>
@@ -30,5 +30,7 @@
 			</p:column>
 		</p:dataTable>
 	</h:form>
+	<p:button outcome="newCurso" value="Insertar Curso" icon="ui-icon-star">
+	</p:button>
 </h:body>
 </html>
