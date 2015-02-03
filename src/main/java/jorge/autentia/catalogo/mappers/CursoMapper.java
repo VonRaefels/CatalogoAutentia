@@ -18,4 +18,7 @@ public interface CursoMapper {
 	
 	@Select("SELECT * FROM curso LIMIT #{start}, #{offset}")
 	public List<Curso> findAllCursos(@Param("start") int start,@Param("offset") int offset);
+	
+	@Select("SELECT count(*) FROM curso")
+	public int countCursos();
 }

@@ -7,4 +7,5 @@ import jorge.autentia.catalogo.model.Curso;
 public interface CursoService {
 	public void insertCurso(Curso curso);
 	public List<Curso> findAllCursos(int start, int offset);
+	public int countCursos();
 }
