@@ -20,7 +20,7 @@ public class CursoServiceImp implements CursoService{
 		cursoMapper.insertCurso(curso);
 	}
 
-	public List<Curso> findAllCursos() {
-		return cursoMapper.findAllCursos();
+	public List<Curso> findAllCursos(int start, int offset) {
+		return cursoMapper.findAllCursos(start, offset);
 	}
 }

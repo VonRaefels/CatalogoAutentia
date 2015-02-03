@@ -1,8 +1,5 @@
 package jorge.autentia.catalogo.test;
 
-
-import java.io.File;
-import java.net.URL;
 import java.util.List;
 
 import org.junit.Test;
@@ -20,9 +17,10 @@ public class CatalogoTests extends TestCase {
 	public void testFindCursos() {
 		ApplicationContext cxt = new ClassPathXmlApplicationContext("springConfig.xml");
 		CursoService service = (CursoService) cxt.getBean("cursoService");
-		List<Curso> cursos = service.findAllCursos();
+		List<Curso> cursos = service.findAllCursos(0, 3);
 		assertNotNull(cursos);
 		assertTrue(cursos.size() > 0);
+		assertEquals(3, cursos.size());
 	}
 	
 	@Test
