@@ -17,7 +17,7 @@ public class CatalogoTests extends TestCase {
 		ApplicationContext cxt = new ClassPathXmlApplicationContext(
 				"springConfig.xml");
 		CursoService service = (CursoService) cxt.getBean("cursoService");
-		List<Curso> cursos = service.findAllCursos(0, 3);
+		List<Curso> cursos = service.findAllCursosOffset(0, 3);
 		assertNotNull(cursos);
 		assertTrue(cursos.size() > 0);
 		assertEquals(3, cursos.size());
@@ -47,5 +47,14 @@ public class CatalogoTests extends TestCase {
 		int count = service.countCursos();
 		assertNotNull(count);
 		assertTrue(count > 0);
+	}
+	
+	@Test
+	public void testFindOneCurso() {
+		ApplicationContext cxt = new ClassPathXmlApplicationContext(
+				"springConfig.xml");
+		CursoService service = (CursoService) cxt.getBean("cursoService");
+		Curso curso = service.findOneCurso(1);
+		assertNotNull(curso);
 	}
 }

@@ -5,26 +5,30 @@
 <h:head>
 	<title>Catátalogo Autentia</title>
 	<style>
-		.ui-widget, .ui-widget .ui-widget {
-		    font-size: 80%;
-		}
-	</style>
+.ui-widget,.ui-widget .ui-widget {
+	font-size: 80%;
+}
+</style>
 </h:head>
 <h:body>
+
 	<h1>Catálogo de Cursos</h1>
-	<p:dataTable style="width:50%;" var="curso" value="#{cursosLazyView.lazyModel}"
-		paginator="true" rows="2" paginatorPosition="bottom"
-		paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-		rowsPerPageTemplate="2, 4" id="cursoTable" lazy="true">
-		<p:column headerText="Id">
-			<h:outputText value="#{curso.id}" />
-		</p:column>
-		<p:column headerText="Título">
-			<h:outputText value="#{curso.titulo}" />
-		</p:column>
-		<p:column headerText="Horas">
-			<h:outputText value="#{curso.horas}" />
-		</p:column>
-	</p:dataTable>
+	<h:form>
+		<p:dataTable style="width:50%;" var="curso"
+			value="#{cursosView.cursos}" paginator="true" rows="2"
+			paginatorPosition="bottom"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			rowsPerPageTemplate="2, 4" id="cursoTable" lazy="false">
+			<p:column headerText="Título" sortBy="#{curso.titulo}">
+				<h:outputText value="#{curso.titulo}" />
+			</p:column>
+			<p:column headerText="Nivel">
+				<h:outputText value="#{curso.nivel}" />
+			</p:column>
+			<p:column headerText="Horas">
+				<h:outputText value="#{curso.horas}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
 </h:body>
 </html>
