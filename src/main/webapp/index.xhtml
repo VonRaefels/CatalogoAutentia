@@ -4,49 +4,53 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title>Catátalogo Autentia</title>
-	<h:outputStylesheet library="css" name="css/catalogo.css"  />
+	<h:outputStylesheet name="css/catalogo.css" />
 </h:head>
 <h:body>
 
-	<h1>Catálogo de Cursos</h1>
-	<p:dialog modal="true" widgetVar="statusDialog" header="Status"
-		draggable="false" closable="false" resizable="false">
-		<p:graphicImage name="img/ajaxloadingbar.gif" />
-	</p:dialog>
-	<h:form>
-		<p:dataTable style="width: 50%;" var="curso" 
-			value="#{cursosView.cursos}" paginator="true" rows="4"
-			paginatorPosition="bottom"
-			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-			rowsPerPageTemplate="4, 6, 8" id="cursoTable" lazy="false">
-			<p:column headerText="Título" sortBy="#{curso.titulo}">
-				<h:outputText value="#{curso.titulo}" />
-			</p:column>
-			<p:column headerText="Nivel">
-				<h:outputText value="#{curso.nivel}" />
-			</p:column>
-			<p:column headerText="Horas" width="70">
-				<h:outputText value="#{curso.horas}" />
-			</p:column>
-			<p:column headerText="Temario" width="70">
-				<p:commandButton ajax="false"
-					onclick="PrimeFaces.monitorDownload(start, stop);"
-					icon="ui-icon-arrowthick-1-s">
-					<p:fileDownload value="#{cursosView.getTemarioFile(curso)}" />
-				</p:commandButton>
-			</p:column>
-		</p:dataTable>
-	</h:form>
-	<script type="text/javascript">
-		function start() {
-			PF('statusDialog').show();
-		}
+	<div class="centered">
+		<div id="catalogo-title">
+			<h1>Catálogo de Cursos</h1>
+		</div>
 
-		function stop() {
-			PF('statusDialog').hide();
-		}
-	</script>
-	<p:button outcome="newCurso" value="Insertar Curso">
-	</p:button>
+		<p:dialog modal="true" widgetVar="statusDialog" header="Descargando..."
+			draggable="false" closable="false" resizable="false">
+			<p:graphicImage name="img/ajaxloadingbar.gif" />
+		</p:dialog>
+		<h:form>
+			<p:dataTable var="curso" value="#{cursosView.cursos}"
+				paginator="true" rows="4" paginatorPosition="bottom"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="4, 6, 8" id="cursoTable" lazy="false">
+				<p:column headerText="Título" sortBy="#{curso.titulo}">
+					<h:outputText value="#{curso.titulo}" />
+				</p:column>
+				<p:column headerText="Nivel">
+					<h:outputText value="#{curso.nivel}" />
+				</p:column>
+				<p:column headerText="Horas" width="70">
+					<h:outputText value="#{curso.horas}" />
+				</p:column>
+				<p:column headerText="Temario" width="120">
+					<p:commandButton ajax="false"
+						onclick="PrimeFaces.monitorDownload(start, stop);"
+						icon="ui-icon-arrowthick-1-s">
+						<p:fileDownload value="#{cursosView.getTemarioFile(curso)}" />
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+		<p:button outcome="newCurso" value="Insertar Curso">
+		</p:button>
+		<script type="text/javascript">
+			function start() {
+				PF('statusDialog').show();
+			}
+
+			function stop() {
+				PF('statusDialog').hide();
+			}
+		</script>
+	</div>
 </h:body>
 </html>
