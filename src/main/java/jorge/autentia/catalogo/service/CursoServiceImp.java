@@ -2,7 +2,6 @@ package jorge.autentia.catalogo.service;
 
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import jorge.autentia.catalogo.mappers.CursoMapper;
